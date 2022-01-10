@@ -1,4 +1,4 @@
--DENABLE_CXX11=OFF
+-DENABLE_CXX11=ON
 -DBUILD_ZLIB=OFF
 -DBUILD_TIFF=OFF
 -DBUILD_JASPER=OFF
@@ -66,9 +66,9 @@
 -DBUILD_opencv_python2=OFF
 -DBUILD_opencv_python3=OFF
 -DBUILD_opencv_dnn=OFF
--DBUILD_opencv_imgcodecs=OFF
+-DBUILD_opencv_imgcodecs=ON
 -DBUILD_opencv_videoio=OFF
--DBUILD_opencv_calib3d=OFF
+-DBUILD_opencv_calib3d=ON
 -DBUILD_opencv_flann=OFF
 -DBUILD_opencv_objdetect=OFF
 -DBUILD_opencv_stitching=OFF
@@ -76,3 +76,4 @@
 -DBUILD_opencv_shape=OFF
 -DBUILD_opencv_superres=OFF
 -DBUILD_opencv_videostab=OFF
+-DENABLE_LTO=ON
