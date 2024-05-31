@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 
-ANDROID_HOME=/Users/heejin/Library/Android
-ANDROID_NDK=/Users/heejin/Library/Android/sdk/ndk/23.1.7779620
-OPENCV_CONTRIB=../../../opencv_contrib
+ANDROID_HOME=/Users/heejinlee/Library/Android
+ANDROID_NDK=/Users/heejinlee/Library/Android/sdk/ndk/23.1.7779620
 
 # arm
 mkdir -p build-armeabi-v7a
@@ -11,7 +10,6 @@ cd build-armeabi-v7a
 cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
     -DANDROID_ABI="armeabi-v7a" -DANDROID_ARM_NEON=ON -DENABLE_NEON=ON -DANDROID_PLATFORM=android-21 \
     -DCMAKE_INSTALL_PREFIX=install -DCMAKE_BUILD_TYPE=Release \
-    -DOPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB/modules \
     `cat ../../opencv3_cmake_options.txt` -DBUILD_opencv_world=OFF ..
 cmake --build . -j9
 cmake --build . --target install
@@ -23,7 +21,6 @@ cd build-arm64-v8a
 cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
     -DANDROID_ABI="arm64-v8a" -DANDROID_PLATFORM=android-21 \
     -DCMAKE_INSTALL_PREFIX=install -DCMAKE_BUILD_TYPE=Release \
-    -DOPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB/modules \
     `cat ../../opencv3_cmake_options.txt` -DBUILD_opencv_world=OFF ..
 cmake --build . -j9
 cmake --build . --target install
@@ -35,7 +32,6 @@ cd build-x86
 cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
     -DANDROID_ABI="x86" -DANDROID_PLATFORM=android-21 \
     -DCMAKE_INSTALL_PREFIX=install -DCMAKE_BUILD_TYPE=Release \
-    -DOPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB/modules \
     `cat ../../opencv3_cmake_options.txt` -DBUILD_opencv_world=OFF ..
 cmake --build . -j9
 cmake --build . --target install
@@ -47,7 +43,6 @@ cd build-x86_64
 cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
     -DANDROID_ABI="x86_64" -DANDROID_PLATFORM=android-21 \
     -DCMAKE_INSTALL_PREFIX=install -DCMAKE_BUILD_TYPE=Release \
-    -DOPENCV_EXTRA_MODULES_PATH=$OPENCV_CONTRIB/modules \
     `cat ../../opencv3_cmake_options.txt` -DBUILD_opencv_world=OFF ..
 cmake --build . -j9
 cmake --build . --target install
